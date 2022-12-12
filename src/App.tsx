@@ -1,13 +1,19 @@
 import React from 'react';
+import RoverImages from './components/roverImages';
+import RoverInfo from './components/roverInfo';
+import RoverSelector from './components/roverSelector';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <h1>hello from react</h1>
       <p>
         put your stuff here
       </p>
-    </div>
+      <RoverSelector />
+      <RoverInfo />
+      <RoverImages />
+    </>
   );
 }
 

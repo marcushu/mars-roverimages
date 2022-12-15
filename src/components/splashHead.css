@@ -1,3 +1,20 @@
+header {
+    padding: 80px 0px;
+}
+
 #title {
+    text-align: center;
     font-family: 'Cinzel', serif;
+    color: rgba(77, 12, 12, 1);
+    font-size: 64px;
+}
+
+#text {
+    text-align: center;
+    margin: auto;
+    padding-top: 30px;
+    max-width: 700px;
+    font-size: 24px;
+    color: rgb(45, 45, 45);
+    font-weight: lighter;
 }

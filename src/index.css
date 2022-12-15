@@ -1,0 +1,5 @@
+body {
+    background-image: url('./images/bgwithpale.png');
+    background-repeat: no-repeat;
+    background-size: cover; /* switch to 'contain', or resize on smaller screens (?) */
+}

@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,300;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap');
+
 body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: rgb(71, 71, 71);
     background-image: url('./images/bgwithpale.png');
     background-repeat: no-repeat;
     background-size: cover; /* switch to 'contain', or resize on smaller screens (?) */

@@ -1,0 +1,36 @@
+.textbox {
+    background-color: rgba(255, 253, 253, 0.27);
+    width: fit-content;
+    padding: 40px 0px 40px 40px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+hr {
+ width: 90%;
+ border-top: 1px solid rgb(145, 81, 81);
+}
+
+.roverName {
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
+}
+
+table {
+    padding-top: 10px;
+}
+
+td:first-child {
+    font-weight: lighter;
+}
+
+td {
+    width: 150px;
+    padding: 5px 0px;
+}
+
+.container:hover {
+    transform: scale(1.01);
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}

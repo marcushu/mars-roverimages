@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-export type RoverName = 'Spirit' | 'Opportunity';
+export type RoverName = 'Spirit' | 'Opportunity' | 'Curiosity';
 
 interface ContextType {
     roverName: RoverName

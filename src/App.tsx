@@ -6,7 +6,7 @@ import SplashHead from './components/SplashHead';
 import Context, { RoverName } from './roverContext';
 
 function App() {
-  const [currentRover, setCurrentRover] = useState<RoverName>('Spirit')
+  const [currentRover, setCurrentRover] = useState<RoverName>('Curiosity')
   
   return (
     <Context.Provider value={{roverName: currentRover, setRover: setCurrentRover}}>

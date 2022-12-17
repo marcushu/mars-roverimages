@@ -4,6 +4,7 @@
     justify-content: center;
     justify-items: center;
     align-items: center;
+    animation: 0.5s cubic-bezier(0.59, 1.32, 0.71, 0.95) 0s 1 appear;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas: 
@@ -28,4 +29,14 @@
 
 .imagebox {
     grid-area: 'image';
+}
+
+@keyframes appear {
+    0% {
+        transform: scale(0, 0);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
 }

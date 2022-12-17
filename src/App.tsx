@@ -12,7 +12,7 @@ function App() {
     <Context.Provider value={{roverName: currentRover, setRover: setCurrentRover}}>
       <SplashHead />
       <RoverSelector />
-      <RoverInfo />
+      <RoverInfo selectedRover={currentRover} />
       <RoverImages />
     </Context.Provider>
   );

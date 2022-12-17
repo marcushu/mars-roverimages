@@ -1,0 +1,31 @@
+.container {
+    margin: 100px auto;
+    max-width: 1050px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+        'text image';
+}
+
+.rovertitle {
+    font-family: 'Cinzel', serif;
+    color: rgba(77, 12, 12, 1);
+    font-size: 24px;
+    padding-bottom: 20px;
+}
+
+.textbox {
+    grid-area: 'text';
+    font-weight: 400;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8rem;
+    padding: 15px;
+}
+
+.imagebox {
+    grid-area: 'image';
+}

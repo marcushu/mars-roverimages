@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.54);
+    max-width: fit-content;
+}
+
+.imagestyle {
+    width: 250px;
+}
+
+.statistics {
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.statistics > div > div {
+    padding: 4px 0px;
+}
+
+.rovername {
+    color: rgba(183, 183, 183, 1);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.camera {
+    font-weight: 500;
+    font-size: 1rem;
+    color: rgba(253, 253, 253, 1);
+}
+
+.roverid {
+    color: rgba(220, 220, 220, 1);
+    font-weight: 400px;
+    font-size: .8rem;
+}
+
+.date {
+    color: white;
+    font-weight: 400px;
+    font-size: 1.0rem;
+}
+
+.status {
+    color: rgba(148, 148, 148, 1);
+    font-size: 0.8rem;
+}
+
+.container > div {
+    width: 250px;
+}

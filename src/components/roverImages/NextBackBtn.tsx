@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import './nextBackBtn.module.css';
 
 interface NextBackBtnProps {
   goFunction: () => void

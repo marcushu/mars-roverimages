@@ -1,15 +1,25 @@
-import { FunctionComponent, useContext } from "react";  
-import Context from "../../roverContext";
+import { FunctionComponent } from "react";
+import RoverCard from "./RoverCard";
+import styles from './index.module.css';
+import SolPicker from "./SolPicker";
 
 
 const RoverImages: FunctionComponent = () => {
-  const rover  = useContext(Context);
 
   return (
-    <>
-      <p>rover images...</p>
-      <p>{rover?.roverName}</p>
-    </>
+    <div>
+      <div style={{padding: '90px 0px'}}>
+        <SolPicker />
+      </div>
+      <div className={styles.imagerow}>
+        <div>
+          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
+        </div>
+        <div>
+          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
+        </div>
+      </div>
+    </div>
   );
 }
 

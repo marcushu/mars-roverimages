@@ -2,8 +2,12 @@ import { FunctionComponent, useState } from "react";
 import NextBackBtn from "./NextBackBtn";
 import styles from './solPicker.module.css';
 
+interface SolPickerProps {
+  currentSol: number
+  setSol: React.Dispatch<React.SetStateAction<number>>
+}
 
-const SolPicker: FunctionComponent = () => {
+const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, setSol }) => {
   const [solValue, setSolValue] = useState(1);
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,12 +24,13 @@ const SolPicker: FunctionComponent = () => {
   }
 
   const nextSol = () => {
-    alert("next day");
+    setSol(current => current + 1);
   }
 
-  const prevSol = () => {
-    alert("prev sol")
-  }
+const prevSol = () => {
+  if(currentSol > 2)
+    setSol(current => current - 1);
+}
 
   return (
     <div className={styles.solpicker}>

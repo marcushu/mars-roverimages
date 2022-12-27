@@ -23,11 +23,28 @@ interface ImageInfoType {
     sol: number
 }
 
-type imageDataType = ImageInfoType[]
+export type imageDataType = ImageInfoType[]
+
+
+// Convert [1,2,3,4] => [[1,2], [3,4]]
+//
+const arrayOfArrays: any = (anArray: any) => {
+    const ARRAYLENGTHS = 2;
+
+    if (anArray.length < 1)
+        return [];
+
+    const end = anArray.splice(ARRAYLENGTHS);
+
+    return [anArray, ...arrayOfArrays(end)]
+}
+
 
 const useGetImages = () => {
-    const [imageData, setImageData] = useState<imageDataType>()
+    const [imageData, setImageData] = useState<imageDataType[]>()
+    const [loading, setLoading] = useState(false);
     const endpoint = '/imagedata'
+
     //TODO: dynamicly add these with argument
     const rovername = 'spirit';
     const sol = 4;
@@ -51,14 +68,18 @@ const useGetImages = () => {
             };
 
             try {
+                setLoading(true);
+
                 const response = await fetch(API + endpoint, requestOptions);
                 const result = await response.json()
+                const dataArray = result.photos;
 
-                console.log(result.photos);
-                setImageData(result.photos);
+                setImageData(arrayOfArrays(dataArray));
             } catch (error) {
                 setImageData([])
                 console.log(error);
+            } finally {
+                setLoading(false);
             }
 
         }
@@ -66,7 +87,7 @@ const useGetImages = () => {
         fetchData();
     }, []);
 
-    return imageData;
+    return { imageData, loading }
 }
 
 export default useGetImages;

@@ -10,9 +10,8 @@ const RoverImages: FunctionComponent = () => {
   const [page, setPage] = useState(1);
   const [currentSol, setcurrentSol] = useState(1);
   const rover = useContext(Context);
-  const roverData = useGetImages();
+  const { imageData /*, loading */ } = useGetImages();
 
-  //TODO: divide image info into 'pairs' and render as a row
   return (
     <div>
       <p>{rover?.roverName}</p>
@@ -20,57 +19,20 @@ const RoverImages: FunctionComponent = () => {
         <SolPicker currentSol={currentSol} setSol={setcurrentSol} />
         <PagePicker numOfPages={5} currentPage={page} setCurrentPage={setPage} />
       </div>
-      <div className={styles.imagerow}>
-
-
-
-      
-        {roverData?.map(rover =>
-          <div key={rover.id}>
-            <RoverCard
-              camera={rover.camera.name}
-              date={rover.earth_date}
-              id={rover.id}
-              roverName={rover.rover.name}
-              status={rover.rover.status} />
-          </div>
-        )}
-
-
-
-
-
-      {/* 
-        <div>
-          <RoverCard
-            camera="Rear Hazard Avoidance Camera"
-            date="3-11-2020"
-            id={123070}
-            roverName='Opportunity'
-            status="complete" />
+      {imageData?.map((roverPair) =>
+        <div className={styles.imagerow}>
+          {roverPair.map(roverx =>
+            <div key={roverx.id}>
+              <RoverCard
+                camera={roverx.camera.name}
+                date={roverx.earth_date}
+                id={roverx.id}
+                roverName={roverx.rover.name}
+                status={roverx.rover.status} />
+            </div>
+          )}
         </div>
-        <div>
-          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
-        </div>
-      */}
-
-      </div>
-      <div className={styles.imagerow}>
-        <div>
-          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
-        </div>
-        <div>
-          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
-        </div>
-      </div>
-      <div className={styles.imagerow}>
-        <div>
-          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
-        </div>
-        <div>
-          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
-        </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -28,7 +28,7 @@ const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, setSol }) =>
   }
 
 const prevSol = () => {
-  if(currentSol > 2)
+  if(currentSol > 1)
     setSol(current => current - 1);
 }
 

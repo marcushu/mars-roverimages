@@ -13,7 +13,7 @@ interface RoverImagesProps {
 const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
   const [page, setPage] = useState(1);
   const [currentSol, setcurrentSol] = useState(1);
-  const { imageData /*, loading */ } = useGetImages(currentRover);
+  const { imageData /*, loading */ } = useGetImages(currentRover, currentSol);
 
   return (
     <div>

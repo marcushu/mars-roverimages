@@ -40,23 +40,22 @@ const arrayOfArrays: any = (anArray: any) => {
 }
 
 
-const useGetImages = () => {
+const useGetImages = (selectedRover: RoverName) => {
     const [imageData, setImageData] = useState<imageDataType[]>()
     const [loading, setLoading] = useState(false);
     const endpoint = '/imagedata'
 
     //TODO: dynamicly add these with argument
-    const rovername = 'spirit';
-    const sol = 4;
+    const sol = 1;
     const page = 1;
 
     useEffect(() => {
         const fetchData = async () => {
-            var requestHeaders = new Headers();
+            let requestHeaders = new Headers();
             requestHeaders.append("Content-Type", "application/json");
 
             let raw = JSON.stringify({
-                "rover": rovername,
+                "rover": selectedRover,
                 "sol": sol,
                 "page": page
             });
@@ -85,7 +84,7 @@ const useGetImages = () => {
         }
 
         fetchData();
-    }, []);
+    }, [selectedRover]);
 
     return { imageData, loading }
 }

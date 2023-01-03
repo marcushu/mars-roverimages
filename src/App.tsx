@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PageFooter from './components/PageFooter';
 import RoverImages from './components/roverImages';
 import RoverInfo from './components/roverInfo';
 import RoverSelector from './components/roverSelector';
@@ -14,6 +15,7 @@ function App() {
       <RoverSelector />
       <RoverInfo selectedRover={currentRover} />
       <RoverImages />
+      <PageFooter />
     </Context.Provider>
   );
 }

@@ -19,6 +19,22 @@ const RoverImages: FunctionComponent = () => {
           <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
         </div>
       </div>
+      <div className={styles.imagerow}>
+        <div>
+          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
+        </div>
+        <div>
+          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
+        </div>
+      </div>
+      <div className={styles.imagerow}>
+        <div>
+          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
+        </div>
+        <div>
+          <RoverCard camera="Rear Hazard Avoidance Camera" date="3-11-2020" id={123070} roverName='Opportunity' status="complete" />
+        </div>
+      </div>
     </div>
   );
 }

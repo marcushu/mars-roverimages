@@ -6,7 +6,6 @@ interface RoverCardProps {
   roverName: RoverName
 }
 
-//TODO: retrieve stats from api?
 const RoverCard: FunctionComponent<RoverCardProps> = ({ roverName }) => {
   const rover = useContext(Context);
 

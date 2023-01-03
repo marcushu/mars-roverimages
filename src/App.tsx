@@ -14,7 +14,7 @@ function App() {
       <SplashHead />
       <RoverSelector />
       <RoverInfo selectedRover={currentRover} />
-      <RoverImages />
+      <RoverImages currentRover={currentRover} />
       <PageFooter />
     </Context.Provider>
   );

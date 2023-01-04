@@ -1,20 +1,21 @@
 .container {
-    margin: 100px auto;
+    margin: 80px auto;
     max-width: 1050px;
     justify-content: center;
     justify-items: center;
     align-items: center;
     animation: 0.5s cubic-bezier(0.59, 1.32, 0.71, 0.95) 0s 1 appear;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: 
-        'text image';
+    display: flex;
+}
+
+.container > * {
+    flex: 1 1;
 }
 
 .rovertitle {
     font-family: 'Cinzel', serif;
     color: rgba(77, 12, 12, 1);
-    font-size: 24px;
+    font-size: 2rem;
     padding-bottom: 20px;
 }
 
@@ -24,7 +25,7 @@
     text-align: center;
     font-size: 18px;
     line-height: 1.8rem;
-    padding: 15px;
+    padding: 15px 50px;
 }
 
 .imagebox {
@@ -38,5 +39,16 @@
 
     100% {
         transform: scale(1, 1);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        flex-direction: column-reverse;
+    }
+
+    .textbox {
+        max-width: 500px;
+        padding: 50px;
     }
 }

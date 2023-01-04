@@ -1,3 +1,7 @@
+.container {
+    width: unset;
+}
+
 .textbox {
     background-color: rgba(255, 253, 253, 0.27);
     width: fit-content;
@@ -43,5 +47,27 @@ td {
 
     100% {
         transform: scale(1, 1);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+
+    .textbox {
+        width: unset;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    .textbox {
+        padding: 50px;
+    }
+
+    .roverName {
+        text-align: center;
     }
 }

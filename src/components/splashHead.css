@@ -6,7 +6,7 @@ header {
     text-align: center;
     font-family: 'Cinzel', serif;
     color: rgba(77, 12, 12, 1);
-    font-size: 64px;
+    font-size: 4rem;
 }
 
 #text {
@@ -14,7 +14,8 @@ header {
     margin: auto;
     padding-top: 30px;
     max-width: 700px;
-    font-size: 24px;
+    font-size: 1.5rem;
     color: rgb(45, 45, 45);
     font-weight: lighter;
+    line-height: 1.5;
 }

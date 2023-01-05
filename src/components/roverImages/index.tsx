@@ -5,6 +5,7 @@ import SolPicker from "./SolPicker";
 import PagePicker from "./PagePicker";
 import { RoverName } from "../../roverContext";
 import useGetImages from "../../hooks/useGetImages";
+import { roverData } from '../roverSelector/roverDataStatic';
 
 interface RoverImagesProps {
   currentRover: RoverName
@@ -14,6 +15,7 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
   const [page, setPage] = useState(1);
   const [currentSol, setcurrentSol] = useState(1);
   const { imageData /*, loading */ } = useGetImages(currentRover, currentSol);
+  const cRoverData = roverData.find(({ name }) => name === currentRover)
 
   useEffect(() => { 
     setcurrentSol(1);
@@ -22,7 +24,10 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
   return (
     <div>
       <div style={{ padding: '90px 0px' }}>
-        <SolPicker currentSol={currentSol} setSol={setcurrentSol} />
+        <SolPicker 
+          currentSol={currentSol} 
+          totalSols={cRoverData?.totalSols ? cRoverData.totalSols : 0} 
+          setSol={setcurrentSol} />
         <PagePicker numOfPages={5} currentPage={page} setCurrentPage={setPage} />
       </div>
       {imageData?.map((roverPair) =>

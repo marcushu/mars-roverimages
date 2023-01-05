@@ -4,10 +4,11 @@ import styles from './solPicker.module.css';
 
 interface SolPickerProps {
   currentSol: number
+  totalSols: number
   setSol: React.Dispatch<React.SetStateAction<number>>
 }
 
-const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, setSol }) => {
+const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, totalSols, setSol }) => {
   const [solValue, setSolValue] = useState(1);
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,13 +25,14 @@ const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, setSol }) =>
   }
 
   const nextSol = () => {
-    setSol(current => current + 1);
+    if (currentSol < totalSols)
+      setSol(current => current + 1);
   }
 
-const prevSol = () => {
-  if(currentSol > 1)
-    setSol(current => current - 1);
-}
+  const prevSol = () => {
+    if (currentSol > 1)
+      setSol(current => current - 1);
+  }
 
   return (
     <div className={styles.solpicker}>

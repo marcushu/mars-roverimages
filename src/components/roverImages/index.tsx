@@ -27,9 +27,9 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
         <PagePicker numOfPages={5} currentPage={page} setCurrentPage={setPage} />
       </div>
       {imageData?.map((roverPair) =>
-        <div className={styles.imagerow}>
+        <div className={styles.imagerow} key={roverPair[0].id}>
           {roverPair.map(roverx =>
-            <div key={roverx.id}>
+            <div key={roverx.id + 'rc'}>
               <RoverCard
                 camera={roverx.camera.name}
                 date={roverx.earth_date}

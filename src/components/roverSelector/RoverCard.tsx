@@ -4,9 +4,15 @@ import styles from './RoverCard.module.css';
 
 interface RoverCardProps {
   roverName: RoverName
+  launchDate: string 
+  landingDate: string
+  lastDate: string
+  totalSols: number
+  imageCount: number
 }
 
-const RoverCard: FunctionComponent<RoverCardProps> = ({ roverName }) => {
+const RoverCard: FunctionComponent<RoverCardProps> = (
+  { roverName, launchDate, landingDate, lastDate, totalSols, imageCount }) => {
   const rover = useContext(Context);
 
   return (
@@ -18,15 +24,15 @@ const RoverCard: FunctionComponent<RoverCardProps> = ({ roverName }) => {
           <tbody>
             <tr>
               <td>Lauch Date</td>
-              <td>11-02-2021</td>
+              <td>{launchDate}</td>
             </tr>
             <tr>
-              <td>Lauch Date</td>
-              <td>2012-01-26</td>
+              <td>Landing Date</td>
+              <td>{landingDate}</td>
             </tr>
             <tr>
               <td>End Date</td>
-              <td>2021-03-08</td>
+              <td>{lastDate}</td>
             </tr>
           </tbody>
         </table>
@@ -34,11 +40,11 @@ const RoverCard: FunctionComponent<RoverCardProps> = ({ roverName }) => {
           <tbody>
             <tr>
               <td>Total sols</td>
-              <td>1123</td>
+              <td>{totalSols}</td>
             </tr>
             <tr>
               <td>Image count</td>
-              <td>65433</td>
+              <td>{imageCount}</td>
             </tr>
           </tbody>
         </table>

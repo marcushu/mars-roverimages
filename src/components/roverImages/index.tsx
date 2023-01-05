@@ -5,7 +5,7 @@ import SolPicker from "./SolPicker";
 import PagePicker from "./PagePicker";
 import { RoverName } from "../../roverContext";
 import useGetImages from "../../hooks/useGetImages";
-import { roverData } from '../roverSelector/roverDataStatic';
+import { roverData } from '../../roverDataStatic';
 
 interface RoverImagesProps {
   currentRover: RoverName

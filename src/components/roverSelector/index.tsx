@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import RoverCard from "./RoverCard";
 import styles from './index.module.css';
-import { roverData } from "./roverDataStatic";
+import { roverData } from "../../roverDataStatic";
 import { RoverName } from "../../roverContext";
 
 const RoverSelector: FunctionComponent = () => {

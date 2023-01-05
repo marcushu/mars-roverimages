@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import RoverCard from "./RoverCard";
 import styles from './index.module.css';
 import SolPicker from "./SolPicker";
@@ -14,6 +14,10 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
   const [page, setPage] = useState(1);
   const [currentSol, setcurrentSol] = useState(1);
   const { imageData /*, loading */ } = useGetImages(currentRover, currentSol);
+
+  useEffect(() => { 
+    setcurrentSol(1);
+  }, [currentRover]);
 
   return (
     <div>

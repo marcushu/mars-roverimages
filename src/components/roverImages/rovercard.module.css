@@ -1,19 +1,25 @@
 .container {
     display: flex;
-    background-color: rgba(0, 0, 0, 0.54);
     max-width: fit-content;
     margin: 20px 0px;
 }
 
 .imagestyle {
+    display: block;
     width: 250px;
+    border-radius: 20px;
 }
 
 .statistics {
     padding: 0px 10px;
+    background-color: rgba(0, 0, 0, 0.54);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin: auto;
+    height: 200px;
+    border-radius: 0px 20px 20px 0px;
+    width: 250px;
 }
 
 .statistics > div > div {
@@ -49,6 +55,17 @@
     font-size: 0.8rem;
 }
 
-.container > div {
-    width: 250px;
+@media screen and (max-width: 700px) {
+    .statistics {
+        border-radius: 0px 0px 20px 20px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .imagestyle {
+        width: 270px;
+        border-radius: 20px 20px 0px 0px;
+    }
 }

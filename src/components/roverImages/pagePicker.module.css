@@ -1,0 +1,20 @@
+.pagepicker {
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.pagepickernumber {
+    padding: 0px 5px;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.pagepickernumber:hover {
+    cursor: pointer;
+}
+
+.selected {
+    font-weight: 300;
+    font-style: unset;
+}

@@ -1,15 +1,18 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import RoverCard from "./RoverCard";
 import styles from './index.module.css';
 import SolPicker from "./SolPicker";
+import PagePicker from "./PagePicker";
 
 
 const RoverImages: FunctionComponent = () => {
+  const [page, setPage] = useState(1);
 
   return (
     <div>
       <div style={{padding: '90px 0px'}}>
         <SolPicker />
+        <PagePicker numOfPages={5} currentPage={page} setCurrentPage={setPage} />
       </div>
       <div className={styles.imagerow}>
         <div>

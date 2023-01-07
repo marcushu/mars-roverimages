@@ -5,7 +5,7 @@ import styles from './solPicker.module.css';
 interface SolPickerProps {
   currentSol: number
   totalSols: number
-  setSol: React.Dispatch<React.SetStateAction<number>>
+  setSol: (n: number) => void
 }
 
 const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, totalSols, setSol }) => {
@@ -26,12 +26,12 @@ const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, totalSols, s
 
   const nextSol = () => {
     if (currentSol < totalSols)
-      setSol(current => current + 1);
+      setSol(currentSol + 1);
   }
 
   const prevSol = () => {
     if (currentSol > 1)
-      setSol(current => current - 1);
+      setSol(currentSol - 1);
   }
 
   return (

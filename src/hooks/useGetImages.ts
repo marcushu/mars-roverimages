@@ -40,13 +40,11 @@ const arrayOfArrays: any = (anArray: any) => {
 }
 
 
-const useGetImages = (selectedRover: RoverName, sol: number) => {
+const useGetImages = (selectedRover: RoverName, sol: number, page: number) => {
     const [imageData, setImageData] = useState<imageDataType[]>()
     const [loading, setLoading] = useState(false);  //TODO: handle loading state
     const endpoint = '/imagedata'
 
-    //TODO: dynamicly add these with argument
-    const page = 1;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -83,7 +81,7 @@ const useGetImages = (selectedRover: RoverName, sol: number) => {
         }
 
         fetchData();
-    }, [selectedRover, sol]);
+    }, [selectedRover, sol, page]);
 
     return { imageData, loading }
 }

@@ -15,10 +15,10 @@ interface RoverImagesProps {
 const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
   const [page, setPage] = useState(1);
   const [currentSol, setcurrentSol] = useState(1);
-  const { imageData /*, loading */ } = useGetImages(currentRover, currentSol);
+  const { imageData /*, loading */ } = useGetImages(currentRover, currentSol, page);
   const { roverManifest } = useGetMaifest(currentRover);
   const cRoverData = roverData.find(({ name }) => name === currentRover);
-
+    // Static info, this data is no longer being updated.
 
   useEffect(() => {
     setcurrentSol(1);
@@ -31,15 +31,17 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
     setPage(1);
   }
 
-  
+
   const numImagesThisSol = useMemo(() => {
     const totalPhotos = roverManifest.find(({ sol }) => sol === currentSol)?.total_photos;
-    
+    const IMAGESPERPAGE = 25;
+      // the api limits the response to 25 image entries.
+
     if (totalPhotos) {
-      if (totalPhotos <= 25) {
-        return 1
+      if (totalPhotos <= IMAGESPERPAGE) {
+        return 1;
       } else {
-        return Math.floor(totalPhotos/25)
+        return Math.floor(totalPhotos/IMAGESPERPAGE);
       }
     } else {
       return 0;

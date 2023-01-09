@@ -2,22 +2,22 @@ import { FunctionComponent } from "react"
 import { RoverName } from "../../roverContext"
 import styles from './rovercard.module.css';
 
-// tes image
-import samdivleimage from './sampleImage.jpeg';
-
-interface RoverCarddivrodivs {
+interface RoverCardProps {
   roverName: RoverName
   camera: string
   id: number
   date: string
   status: string
+  imageUrl: string
 }
 
-const RoverCard: FunctionComponent<RoverCarddivrodivs> = ({ roverName, camera, id, date, status }) => {
+const RoverCard: FunctionComponent<RoverCardProps> = ({ roverName, camera, id, date, status, imageUrl }) => {
   return (
     <div className={styles.container} >
       <div>
-        <img className={styles.imagestyle} src={samdivleimage} alt="roverimage" />
+        <a href={imageUrl} target='_blank' rel="noreferrer">
+          <img className={styles.imagestyle} src={imageUrl} alt="roverimage" />
+        </a>
       </div>
       <div className={styles.statistics}>
         <div>

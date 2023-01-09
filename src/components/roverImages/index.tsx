@@ -18,7 +18,7 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
   const { imageData /*, loading */ } = useGetImages(currentRover, currentSol, page);
   const { roverManifest } = useGetMaifest(currentRover);
   const cRoverData = roverData.find(({ name }) => name === currentRover);
-    // Static info, this data is no longer being updated.
+  // Static info, this data is no longer being updated.
 
   useEffect(() => {
     setcurrentSol(1);
@@ -35,13 +35,13 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
   const numImagesThisSol = useMemo(() => {
     const totalPhotos = roverManifest.find(({ sol }) => sol === currentSol)?.total_photos;
     const IMAGESPERPAGE = 25;
-      // the api limits the response to 25 image entries.
+    // the api limits the response to 25 image entries.
 
     if (totalPhotos) {
       if (totalPhotos <= IMAGESPERPAGE) {
         return 1;
       } else {
-        return Math.floor(totalPhotos/IMAGESPERPAGE);
+        return Math.floor(totalPhotos / IMAGESPERPAGE);
       }
     } else {
       return 0;
@@ -56,9 +56,9 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
           currentSol={currentSol}
           totalSols={cRoverData?.totalSols ? cRoverData.totalSols : 0}
           setSol={newSol} />
-        {numImagesThisSol &&
-          <PagePicker numOfPages={numImagesThisSol} currentPage={page} setCurrentPage={setPage} />}
       </div>
+      {numImagesThisSol &&
+          <PagePicker numOfPages={numImagesThisSol} currentPage={page} setCurrentPage={setPage} />}
       {imageData?.map((roverPair) =>
         <div className={styles.imagerow} key={roverPair[0].id}>
           {roverPair.map(roverx =>
@@ -68,11 +68,13 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
                 date={roverx.earth_date}
                 id={roverx.id}
                 roverName={roverx.rover.name}
-                status={roverx.rover.status} />
+                status={roverx.rover.status}
+                imageUrl={roverx.img_src} />
             </div>
           )}
         </div>
       )}
+      <PagePicker numOfPages={numImagesThisSol} currentPage={page} setCurrentPage={setPage} />
     </div>
   );
 }

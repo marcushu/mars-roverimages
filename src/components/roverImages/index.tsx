@@ -57,7 +57,7 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
           totalSols={cRoverData?.totalSols ? cRoverData.totalSols : 0}
           setSol={newSol} />
       </div>
-      {numImagesThisSol &&
+      {(numImagesThisSol > 1) &&
           <PagePicker numOfPages={numImagesThisSol} currentPage={page} setCurrentPage={setPage} />}
       {imageData?.map((roverPair) =>
         <div className={styles.imagerow} key={roverPair[0].id}>
@@ -74,7 +74,8 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
           )}
         </div>
       )}
-      <PagePicker numOfPages={numImagesThisSol} currentPage={page} setCurrentPage={setPage} />
+      {(numImagesThisSol > 1) &&
+          <PagePicker numOfPages={numImagesThisSol} currentPage={page} setCurrentPage={setPage} />}
     </div>
   );
 }

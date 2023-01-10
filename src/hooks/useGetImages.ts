@@ -48,25 +48,10 @@ const useGetImages = (selectedRover: RoverName, sol: number, page: number) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            let requestHeaders = new Headers();
-            requestHeaders.append("Content-Type", "application/json");
-
-            let raw = JSON.stringify({
-                "rover": selectedRover,
-                "sol": sol,
-                "page": page
-            });
-
-            let requestOptions = {
-                method: 'POST',
-                headers: requestHeaders,
-                body: raw
-            };
-
             try {
                 setLoading(true);
 
-                const response = await fetch(API + endpoint, requestOptions);
+                const response = await fetch(`${API}${endpoint}?rover=${selectedRover}&sol=${sol}&page=${page}`);
                 const result = await response.json()
                 const dataArray = result.photos;
 
@@ -77,7 +62,6 @@ const useGetImages = (selectedRover: RoverName, sol: number, page: number) => {
             } finally {
                 setLoading(false);
             }
-
         }
 
         fetchData();

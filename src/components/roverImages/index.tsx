@@ -42,7 +42,7 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
       if (totalPhotos <= IMAGESPERPAGE) {
         return 1;
       } else {
-        return Math.floor(totalPhotos / IMAGESPERPAGE);
+        return Math.ceil(totalPhotos / IMAGESPERPAGE);
       }
     } else {
       return 0;

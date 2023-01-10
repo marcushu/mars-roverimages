@@ -7,6 +7,7 @@ import { RoverName } from "../../roverContext";
 import useGetImages from "../../hooks/useGetImages";
 import { roverData } from '../../roverDataStatic';
 import useGetMaifest from "../../hooks/useGetManifest";
+import NoImage from "./NoImage";
 
 interface RoverImagesProps {
   currentRover: RoverName
@@ -58,24 +59,27 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
           setSol={newSol} />
       </div>
       {(numImagesThisSol > 1) &&
-          <PagePicker numOfPages={numImagesThisSol} currentPage={page} setCurrentPage={setPage} />}
-      {imageData?.map((roverPair) =>
-        <div className={styles.imagerow} key={roverPair[0].id}>
-          {roverPair.map(roverx =>
-            <div key={roverx.id + 'rc'}>
-              <RoverCard
-                camera={roverx.camera.name}
-                date={roverx.earth_date}
-                id={roverx.id}
-                roverName={roverx.rover.name}
-                status={roverx.rover.status}
-                imageUrl={roverx.img_src} />
-            </div>
-          )}
-        </div>
-      )}
+        <PagePicker numOfPages={numImagesThisSol} currentPage={page} setCurrentPage={setPage} />}
+      {imageData?.length ?
+        imageData?.map((roverPair) =>
+          <div className={styles.imagerow} key={roverPair[0].id}>
+            {roverPair.map(roverx =>
+              <div key={roverx.id + 'rc'}>
+                <RoverCard
+                  camera={roverx.camera.name}
+                  date={roverx.earth_date}
+                  id={roverx.id}
+                  roverName={roverx.rover.name}
+                  status={roverx.rover.status}
+                  imageUrl={roverx.img_src} />
+              </div>
+            )}
+          </div>
+        ) :
+        <NoImage sol={currentSol} />
+      }
       {(numImagesThisSol > 1) &&
-          <PagePicker numOfPages={numImagesThisSol} currentPage={page} setCurrentPage={setPage} />}
+        <PagePicker numOfPages={numImagesThisSol} currentPage={page} setCurrentPage={setPage} />}
     </div>
   );
 }

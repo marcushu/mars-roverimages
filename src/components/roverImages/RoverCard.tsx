@@ -1,5 +1,6 @@
-import { FunctionComponent } from "react"
+import { FunctionComponent, useState } from "react"
 import { RoverName } from "../../roverContext"
+import ImageSpinner from "./ImageSpinner";
 import styles from './rovercard.module.css';
 
 interface RoverCardProps {
@@ -12,12 +13,21 @@ interface RoverCardProps {
 }
 
 const RoverCard: FunctionComponent<RoverCardProps> = ({ roverName, camera, id, date, status, imageUrl }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <div className={styles.container} >
-      <div>
+      <div style={{ display: imageLoaded ? 'unset' : 'none' }}>
         <a href={imageUrl} target='_blank' rel="noreferrer">
-          <img className={styles.imagestyle} src={imageUrl} alt="roverimage" />
+          <img
+            className={styles.imagestyle}
+            src={imageUrl}
+            alt="roverimage"
+            onLoad={() => setImageLoaded(true)} />
         </a>
+      </div>
+      <div style={{ display: imageLoaded ? 'none' : 'unset' }}>
+        <ImageSpinner />
       </div>
       <div className={styles.statistics}>
         <div>

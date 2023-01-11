@@ -20,6 +20,7 @@ const PagePicker: FunctionComponent<PagePickerProps> = ({ numOfPages, currentPag
     <div className={styles.pagepicker}>
       {pages?.map(page => 
         <span 
+          key={page}
           onClick={() => setCurrentPage(page)} 
           className={page === currentPage ? styles.selected : styles.pagepickernumber}>
           {page}

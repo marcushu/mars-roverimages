@@ -15,25 +15,20 @@ const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, totalSols, s
     inputRef.current.value = currentSol;
   }, [currentSol]);
 
-  const nextSol = () => {
-    if (currentSol === parseInt(inputRef.current.value)) {
-      if (currentSol < totalSols)
-        setSol(currentSol + 1);
-    } else {
-      if(!!inputRef.current.value) {
-        setSol(parseInt(inputRef.current.value))
-      } else {
-        inputRef.current.value = currentSol;
-      }
-    }
-  }
-
-  const prevSol = () => {
-    if (currentSol === parseInt(inputRef.current.value)) {
-      if (currentSol > 1)
-        setSol(currentSol - 1);
-    } else {
-      if(!!inputRef.current.value) {
+  const goToSol = (goto: 'NEXT' | 'PREV') => {
+    if (currentSol === parseInt(inputRef.current.value)) { // go to next or prev page
+        switch (goto) {
+          case 'NEXT':
+            if (currentSol < totalSols)
+              setSol(currentSol + 1);
+            break;
+          case 'PREV':
+            if (currentSol > 1)
+              setSol(currentSol - 1);
+            break;
+        }
+    } else {  // jump to another page
+      if (!!inputRef.current.value) {  // check not empty
         setSol(parseInt(inputRef.current.value))
       } else {
         inputRef.current.value = currentSol;
@@ -43,7 +38,7 @@ const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, totalSols, s
 
   return (
     <div className={styles.solpicker}>
-      <NextBackBtn goFunction={prevSol}>
+      <NextBackBtn goFunction={() => goToSol('PREV')}>
         &#10094;
       </NextBackBtn>
       sol
@@ -51,7 +46,7 @@ const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, totalSols, s
         type="number"
         ref={inputRef} />
       of {totalSols}
-      <NextBackBtn goFunction={nextSol}>
+      <NextBackBtn goFunction={() => goToSol('NEXT')}>
         &#10095;
       </NextBackBtn>
     </div>

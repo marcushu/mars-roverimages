@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useRef } from "react";
 import NextBackBtn from "./NextBackBtn";
 import styles from './solPicker.module.css';
 
@@ -9,29 +9,29 @@ interface SolPickerProps {
 }
 
 const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, totalSols, setSol }) => {
-  const [solValue, setSolValue] = useState(1);
+  const inputRef = useRef(null) as any;
 
-  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    const num = parseInt(evt.target.value);
-    //if solValue !== currentSol
-    //  hide next/back buttons
-    //  display GoTo button
-    //willl require a handler (prop) to set new page
-    setSolValue(num);
-  }
-
-  const goToSol = () => {
-    alert('go to ' + solValue.toString());
-  }
+  useEffect(() => {
+    inputRef.current.value = currentSol;
+  }, [currentSol]);
 
   const nextSol = () => {
-    if (currentSol < totalSols)
-      setSol(currentSol + 1);
+    if (currentSol === parseInt(inputRef.current.value)) {
+      if (currentSol < totalSols)
+        setSol(currentSol + 1);
+    } else {
+      //TODO: check for valid input vvvv
+      setSol(parseInt(inputRef.current.value));
+    }
   }
 
   const prevSol = () => {
-    if (currentSol > 1)
-      setSol(currentSol - 1);
+    if (currentSol === parseInt(inputRef.current.value)) {
+      if (currentSol > 1)
+        setSol(currentSol - 1);
+    } else {
+      setSol(parseInt(inputRef.current.value));
+    }
   }
 
   return (
@@ -39,8 +39,12 @@ const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, totalSols, s
       <NextBackBtn goFunction={prevSol}>
         &#10094;
       </NextBackBtn>
-      sol <input type="number" value={solValue} onChange={e => handleChange(e)} /> of 2341
-      <NextBackBtn goFunction={solValue === 3 ? goToSol : nextSol}>
+      sol
+      <input
+        type="number"
+        ref={inputRef} />
+      of {totalSols}
+      <NextBackBtn goFunction={nextSol}>
         &#10095;
       </NextBackBtn>
     </div>

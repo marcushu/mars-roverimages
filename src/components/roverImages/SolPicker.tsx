@@ -20,8 +20,11 @@ const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, totalSols, s
       if (currentSol < totalSols)
         setSol(currentSol + 1);
     } else {
-      //TODO: check for valid input vvvv
-      setSol(parseInt(inputRef.current.value));
+      if(!!inputRef.current.value) {
+        setSol(parseInt(inputRef.current.value))
+      } else {
+        inputRef.current.value = currentSol;
+      }
     }
   }
 
@@ -30,7 +33,11 @@ const SolPicker: FunctionComponent<SolPickerProps> = ({ currentSol, totalSols, s
       if (currentSol > 1)
         setSol(currentSol - 1);
     } else {
-      setSol(parseInt(inputRef.current.value));
+      if(!!inputRef.current.value) {
+        setSol(parseInt(inputRef.current.value))
+      } else {
+        inputRef.current.value = currentSol;
+      }
     }
   }
 

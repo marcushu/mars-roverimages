@@ -17,7 +17,7 @@ const PagePicker: FunctionComponent<PagePickerProps> = ({ numOfPages, currentPag
   }, [numOfPages]);
 
   return (
-    <div className={styles.pagepicker}>
+    <div className={styles.pagepicker} data-testid="pagepicker">
       {pages?.map(page => 
         <span 
           key={page}

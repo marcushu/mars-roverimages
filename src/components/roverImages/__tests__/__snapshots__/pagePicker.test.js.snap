@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="pagepicker"
+    data-testid="pagepicker"
+  >
+    <span
+      class="pagepickernumber"
+    >
+      1
+    </span>
+    <span
+      class="selected"
+    >
+      2
+    </span>
+    <span
+      class="pagepickernumber"
+    >
+      3
+    </span>
+    <span
+      class="pagepickernumber"
+    >
+      4
+    </span>
+    <span
+      class="pagepickernumber"
+    >
+      5
+    </span>
+  </div>
+</DocumentFragment>
+`;

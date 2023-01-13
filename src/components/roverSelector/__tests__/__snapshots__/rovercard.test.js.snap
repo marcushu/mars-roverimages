@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="textbox"
+    >
+      <div
+        class="roverName"
+      >
+        Curiosity
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              Lauch Date
+            </td>
+            <td>
+              01-01-2020
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Landing Date
+            </td>
+            <td>
+              1-1-1
+            </td>
+          </tr>
+          <tr>
+            <td>
+              End Date
+            </td>
+            <td>
+              2-2-2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              Total sols
+            </td>
+            <td>
+              1000
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Image count
+            </td>
+            <td>
+              123
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;

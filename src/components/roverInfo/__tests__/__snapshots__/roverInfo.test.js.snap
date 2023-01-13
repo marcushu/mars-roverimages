@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="textbox"
+      >
+        <div
+          class="rovertitle"
+        >
+          Spirit
+        </div>
+        As a counterpart to the opportunity rover, Spirit broadened the search for evidence of water which could have supported life on Mars. Spirit and Opportunity landed on opposite sides of the planet within 21 days of each other. Despite becoming stuck in soft sand, Spirit continued conducting research until march 22, 2010 after completing 2208 sols.
+      </div>
+      <div
+        class="imagebox"
+      >
+        <img
+          alt="rover pic"
+          src="spirit.jpeg"
+          style="border-radius: 20px; max-width: 450px;"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

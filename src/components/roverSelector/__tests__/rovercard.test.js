@@ -24,3 +24,15 @@ it('should render all information', () => {
     const totalsols = screen.getByRole('cell', {  name: /1000/i})
     expect(totalsols).toContainHTML('<td>1000</td>');
 });
+
+it('should match snapshot', () => {
+    const { asFragment } =  render(<RoverCard 
+        imageCount={123}
+        landingDate={"1-1-1"}
+        lastDate={'2-2-2'}
+        launchDate={'01-01-2020'}
+        roverName={"Curiosity"}
+        totalSols={1000} />);
+
+    expect(asFragment()).toMatchSnapshot();
+})

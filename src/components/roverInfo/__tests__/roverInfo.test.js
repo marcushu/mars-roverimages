@@ -10,3 +10,9 @@ it('should load the correct info card', () => {
 
     expect(rovername).toBeInTheDocument();
 });
+
+it('should match snapshot', () => {
+    const { asFragment } = render(<RoverInfo selectedRover={'Spirit'} />);
+
+    expect(asFragment()).toMatchSnapshot();
+})

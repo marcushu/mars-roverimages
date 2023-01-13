@@ -1,13 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import RoverCard from "../RoverCard"
 
-let rovercard = null;
-
-afterEach(() => {
-    rovercard.remove();
-    rovercard = null;
-});
-
 it('should render all information', () => {
     render(<RoverCard 
         imageCount={123}
@@ -17,7 +10,7 @@ it('should render all information', () => {
         roverName={"Curiosity"}
         totalSols={1000} />);
 
-    rovercard = screen.getByText(/Curiosity/i);
+    const rovercard = screen.getByText(/Curiosity/i);
     expect(rovercard).toBeInTheDocument();
 
     const imagecount = screen.getByRole('cell', {  name: /123/i})

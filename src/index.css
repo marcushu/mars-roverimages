@@ -6,8 +6,8 @@ body {
     font-size: 20px;
     color: rgb(71, 71, 71);
     background-image: linear-gradient(rgb(250, 230, 192),rgb(255, 227, 174), rgba(252, 212, 125, 0.5)), url('./images/bglg.jpg');
-    background-repeat: no-repeat;
-    background-size: contain; /* switch to 'contain', or resize on smaller screens (?) */
+    background-repeat: repeat-x;
+    background-size: contain;
     background-position-y: bottom;
 }
 

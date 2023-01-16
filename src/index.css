@@ -10,3 +10,9 @@ body {
     background-size: contain; /* switch to 'contain', or resize on smaller screens (?) */
     background-position-y: bottom;
 }
+
+@media screen and (max-width: 1200px) {
+    body {
+        background-image: linear-gradient(rgb(250, 230, 192),rgb(246, 199, 111));
+    }
+}

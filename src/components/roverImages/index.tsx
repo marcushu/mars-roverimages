@@ -52,7 +52,7 @@ const RoverImages: FunctionComponent<RoverImagesProps> = ({ currentRover }) => {
 
   return (
     <div>
-      <div style={{ padding: '90px 0px' }}>
+      <div style={{ padding: '45px 0px' }}>
         <SolPicker
           currentSol={currentSol}
           totalSols={cRoverData?.totalSols ? cRoverData.totalSols : 0}

@@ -10,7 +10,7 @@ const RoverImages: FunctionComponent = () => {
 
   return (
     <div>
-      <div style={{padding: '90px 0px'}}>
+      <div className={styles.selectors}>
         <SolPicker />
         <PagePicker numOfPages={5} currentPage={page} setCurrentPage={setPage} />
       </div>

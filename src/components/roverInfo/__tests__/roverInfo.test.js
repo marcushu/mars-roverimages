@@ -1,14 +1,13 @@
-import { render, screen, within} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import RoverInfo from "..";
 
 
 it('should load the correct info card', () => {
     render(<RoverInfo selectedRover={'Curiosity'} />);
 
-    const view = screen.getByText(  /in collaboration with the spirit rover \(launched jun 10, 2003\), opportunity set about covering over 28 miles or martian surface in search of evidence that water may have existed on the planet\. armed with a suite of geologists tools, including a rock abrasian tool and a microscopic camera for close analysis of surface samples, opportunity collected data from january 25, 2004 to june of 2018 before succumbing to a dust storm\./i  );
-    const rovername = within(view).getByText(/curiosity/i); 
+    const view = screen.getByText(  /curiosity landed in the gale crater on november 26, 2011 with the primary goal of climate and geological research\. curiosity is the fourth rover sent by nasa to mars, succeeding opportunity which landed in 2004\. weighing in at just under one ton, its extended mission to to asses weather or not conditions on the red planet could have ever supported life continued sending images until december 2022\./i  )
 
-    expect(rovername).toBeInTheDocument();
+    expect(view).toBeInTheDocument();
 });
 
 it('should match snapshot', () => {

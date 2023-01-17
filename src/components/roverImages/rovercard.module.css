@@ -66,7 +66,8 @@
 
 @media screen and (max-width: 700px) {
     .statistics {
-        border-radius: 0px 0px 20px 20px;
+        border-radius: 0px;
+        width: 100%;
     }
 
     .container {
@@ -74,7 +75,7 @@
     }
 
     .imagestyle {
-        width: 270px;
-        border-radius: 20px 20px 0px 0px;
+        width: 100%;
+        border-radius: 0px;
     }
 }

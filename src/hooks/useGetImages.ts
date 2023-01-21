@@ -51,7 +51,7 @@ const useGetImages = (selectedRover: RoverName, sol: number, page: number) => {
             try {
                 setLoading(true);
 
-                const response = await fetch(`${API}${endpoint}?rover=${selectedRover}&sol=${sol}&page=${page}`);
+                const response = await fetch(`${API}${endpoint}/${selectedRover}?sol=${sol}&page=${page}`);
                 const result = await response.json()
                 const dataArray = result.photos;
 

@@ -19,7 +19,7 @@ const useGetMaifest = (rover: RoverName) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`${API}${endpoint}?rover=${rover}`);
+                const response = await fetch(`${API}${endpoint}/${rover}`);
                 const result = await response.json();
 
                 setRoverManifest(result.photo_manifest.photos);
